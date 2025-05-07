@@ -65,10 +65,12 @@ class VectorStore:
     def _create_collection(self) -> None:
         """Create a new collection for storing memories."""
         sample_embedding = self.model.encode("sample text")
+        vector_size = self.model.get_sentence_embedding_dimension() # Vector size is defined by used model
         self.client.create_collection(
             collection_name=self.COLLECTION_NAME,
             vectors_config=VectorParams(
-                size=len(sample_embedding),
+                # size=len(sample_embedding),
+                size=vector_size,
                 distance=Distance.COSINE,
             ),
         )

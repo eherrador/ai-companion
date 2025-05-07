@@ -105,14 +105,14 @@ async def summarize_conversation_node(state: AICompanionState):
 
     if summary:
         summary_message = (
-            f"This is summary of the conversation to date between Ava and the user: {summary}\n\n"
+            f"This is summary of the conversation to date between Allen Carr seller and the user: {summary}\n\n"
             "Extend the summary by taking into account the new messages above:"
         )
     else:
         summary_message = (
-            "Create a summary of the conversation above between Ava and the user. "
+            "Create a summary of the conversation above between Allen Carr seller and the user. "
             "The summary must be a short description of the conversation so far, "
-            "but that captures all the relevant information shared between Ava and the user:"
+            "but that captures all the relevant information shared between Allen Carr seller and the user:"
         )
 
     messages = state["messages"] + [HumanMessage(content=summary_message)]
@@ -133,7 +133,7 @@ async def memory_extraction_node(state: AICompanionState):
 
 
 def memory_injection_node(state: AICompanionState):
-    """Retrieve and inject relevant memories into the character card."""
+    """Retrieve and inject relevant memories into the Allen Carr seller card."""
     memory_manager = get_memory_manager()
 
     # Get relevant memories based on recent conversation

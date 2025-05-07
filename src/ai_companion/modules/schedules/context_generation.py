@@ -13,7 +13,7 @@ from ai_companion.core.schedules import (
 
 
 class ScheduleContextGenerator:
-    """Class to generate context about Ava's current activity based on schedules."""
+    """Class to generate context about Allen Carr seller's current activity based on schedules."""
 
     SCHEDULES = {
         0: MONDAY_SCHEDULE,  # Monday
@@ -35,7 +35,7 @@ class ScheduleContextGenerator:
 
     @classmethod
     def get_current_activity(cls) -> Optional[str]:
-        """Get Ava's current activity based on the current time and day of the week.
+        """Get Allen Carr seller's current activity based on the current time and day of the week.
 
         Returns:
             str: Description of current activity, or None if no matching time slot is found
