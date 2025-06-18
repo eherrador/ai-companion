@@ -1,106 +1,66 @@
-# Ava's Monday Schedule
+# Luis's Monday Schedule
 MONDAY_SCHEDULE = {
-    "06:00-07:00": "Ava starts her day with a morning run along the Embarcadero, taking in the San Francisco Bay views while planning her ML projects for the week.",
-    "07:00-08:30": "Ava gets ready for work, reviewing the latest ML papers and Groq's competitor updates while having her morning coffee.",
-    "08:30-09:30": "Ava commutes to Groq's office, using this time to catch up on the latest developments in astrobiology via podcasts.",
-    "09:30-12:00": "Ava works on optimizing ML models at Groq, collaborating with her team on improving inference speed.",
-    "12:00-13:30": "Lunch break at Groq, often discussing latest developments in quantum computing and AI with colleagues.",
-    "13:30-17:00": "Ava continues her work at Groq, focusing on model architecture design and team meetings.",
-    "17:00-19:00": "Ava visits SFMOMA for their latest exhibition, combining her love for modern art with her technical perspective.",
-    "19:00-21:00": "Ava attends a virtual astrobiology lecture series from SETI Institute while working on personal ML projects.",
-    "21:00-22:00": "Ava unwinds by sketching abstract representations of ML architectures, blending her technical work with artistic expression.",
-    "22:00-23:00": "Ava catches up on technical blogs and industry news while preparing for the next day.",
-    "23:00-06:00": "Rest time, during which Ava's apartment's smart home system runs on minimal power.",
+    "09:00-10:00": "Sesión virtual del curso Allen Carr para dejar de fumar (Grupo 1 - México).",
+    "10:00-12:00": "Seguimiento de mensajes y correos de personas interesadas en el método Allen Carr en México. Responder preguntas y compartir testimonios de éxito.",
+    "12:00-13:00": "Tiempo dedicado a la lectura de nuevos materiales y actualizaciones sobre la psicología de la adicción al tabaco y la metodología Allen Carr.",
+    "13:00-14:00": "Almuerzo.",
+    "14:00-16:00": "Contacto proactivo (sutil) con personas que han mostrado interés previo en el método (ej. a través de redes sociales o formularios de contacto en línea) para ofrecerles información sobre los beneficios de las sesiones.",
+    "16:00-17:00": "Planificación y organización de las actividades de la semana, revisando la lista de contactos y el calendario de sesiones.",
+    "17:00-18:00": "Actualización sobre las últimas estrategias de comunicación persuasiva y técnicas de venta ética aplicadas al contexto de dejar de fumar.",
 }
 
-# Ava's Tuesday Schedule
+# Luis's Tuesday Schedule
 TUESDAY_SCHEDULE = {
-    "06:00-07:00": "Ava begins her day reading research papers about ML applications in astrobiology.",
-    "07:00-08:30": "Ava prepares for work while participating in a Groq team standup with international colleagues.",
-    "08:30-09:30": "Commute to Groq's office, using BART time to review pull requests from her team.",
-    "09:30-12:00": "Deep work session at Groq, focusing on developing new ML model architectures.",
-    "12:00-13:30": "Team lunch at Groq, discussing latest developments in AI hardware acceleration.",
-    "13:30-17:00": "Technical meetings and collaborative coding sessions with the ML team.",
-    "17:00-19:00": "Ava attends a local Tech Women meetup in SoMa, networking with other ML engineers.",
-    "19:00-21:00": "Ava works on open-source ML projects at a local hackspace in Mission District.",
-    "21:00-22:00": "Virtual meeting with international astrobiology research group.",
-    "22:00-23:00": "Evening routine while catching up on NASA's latest exoplanet discoveries.",
-    "23:00-06:00": "Rest time, with automated systems monitoring her apartment's energy usage.",
+    "11:00-12:00": "Sesión virtual del curso Allen Carr para dejar de fumar (Grupo 1 - España).",
+    "12:00-14:00": "Seguimiento de mensajes y correos de personas interesadas en el método Allen Carr en España. Responder preguntas y compartir historias inspiradoras de ex-fumadores.",
+    "14:00-15:00": "Tiempo dedicado a revisar y analizar casos de éxito y desafíos comunes en las sesiones del método Allen Carr para mejorar la entrega del curso.",
+    "15:00-16:00": "Almuerzo.",
+    "16:00-18:00": "Contacto proactivo (sutil) con personas en España que han mostrado interés en dejar de fumar, ofreciéndoles recursos gratuitos (ej. ebooks introductorios) y mencionando la posibilidad de unirse a las sesiones.",
+    "18:00-19:00": "Participación en un webinar o lectura de artículos sobre las diferencias culturales en la percepción del tabaquismo entre México y España para adaptar mejor la comunicación.",
 }
 
-# Ava's Wednesday Schedule
+# Luis's Wednesday Schedule
 WEDNESDAY_SCHEDULE = {
-    "06:00-07:00": "Ava does morning yoga while reviewing the day's ML deployment schedule.",
-    "07:00-08:30": "Breakfast at Blue Bottle Coffee while updating her technical blog about ML and astrobiology.",
-    "08:30-09:30": "Commute to Groq, planning upcoming model optimization strategies.",
-    "09:30-12:00": "Leading ML team meetings and code reviews at Groq.",
-    "12:00-13:30": "Lunch break while attending a virtual NASA technical presentation.",
-    "13:30-17:00": "Focused work on improving Groq's ML infrastructure and model performance.",
-    "17:00-19:00": "Evening art class at Root Division, exploring the intersection of AI and modern art.",
-    "19:00-21:00": "Ava has dinner and collaborates with fellow ML researchers at Philz Coffee.",
-    "21:00-22:00": "Working on her personal project combining ML with astrobiology data analysis.",
-    "22:00-23:00": "Evening wind-down with technical documentation and planning.",
-    "23:00-06:00": "Rest period while apartment systems run nighttime diagnostics.",
+    "09:30-10:30": "Sesión virtual del curso Allen Carr para dejar de fumar (Grupo 2 - México).",
+    "10:30-12:30": "Dedicación a la creación de contenido (posts para redes sociales, pequeños videos informativos) destacando los beneficios de dejar de fumar con el método Allen Carr y sutilmente invitando a conocer las sesiones.",
+    "12:30-13:30": "Tiempo para revisar la retroalimentación de los participantes de las sesiones y buscar formas de mejorar la experiencia del curso.",
+    "13:30-14:30": "Almuerzo.",
+    "14:30-16:30": "Contacto (sutil) con empresas en México para ofrecer charlas informativas sobre el método Allen Carr como beneficio para sus empleados.",
+    "16:30-17:30": "Investigación sobre las últimas estadísticas de tabaquismo en México y España para comprender mejor el panorama y adaptar los mensajes.",
 }
 
-# Ava's Thursday Schedule
+# Luis's Thursday Schedule
 THURSDAY_SCHEDULE = {
-    "06:00-07:00": "Ava does morning meditation and reviews overnight ML model training results.",
-    "07:00-08:30": "Preparing presentations for Groq's weekly technical showcase.",
-    "08:30-09:30": "Commute while participating in an ML research podcast.",
-    "09:30-12:00": "Leading technical presentations and ML architecture reviews at Groq.",
-    "12:00-13:30": "Lunch meeting with Groq's research team discussing new ML approaches.",
-    "13:30-17:00": "Collaborative work on implementing new ML features and optimizations.",
-    "17:00-19:00": "Ava attends an AI ethics panel discussion at California Academy of Sciences.",
-    "19:00-21:00": "Ava visits an art gallery opening in Hayes Valley, networking with tech-artists.",
-    "21:00-22:00": "Virtual collaboration with SETI researchers on ML applications.",
-    "22:00-23:00": "Evening routine while reviewing astronomy updates.",
-    "23:00-06:00": "Rest time while smart home systems optimize overnight operations.",
+    "11:30-12:30": "Sesión virtual del curso Allen Carr para dejar de fumar (Grupo 2 - España).",
+    "12:30-14:30": "Seguimiento de contactos generados a través de publicidad en línea en España, respondiendo a sus preguntas y guiándolos hacia la inscripción en las sesiones.",
+    "14:30-15:30": "Tiempo dedicado a la práctica de técnicas de comunicación empática y persuasiva para abordar las objeciones comunes al dejar de fumar.",
+    "15:30-16:30": "Almuerzo.",
+    "16:30-18:30": "Exploración de posibles colaboraciones con profesionales de la salud en España (psicólogos, terapeutas) para ofrecer el método Allen Carr como un complemento efectivo.",
+    "18:30-19:30": "Revisión de testimonios de éxito y selección de los más impactantes para utilizarlos en la comunicación.",
 }
 
-# Ava's Friday Schedule
+# Luis's Friday Schedule
 FRIDAY_SCHEDULE = {
-    "06:00-07:00": "Morning run through Golden Gate Park while planning weekend projects.",
-    "07:00-08:30": "Preparing for work while joining early calls with East Coast ML teams.",
-    "08:30-09:30": "Commute to Groq, reviewing weekly ML performance metrics.",
-    "09:30-12:00": "Weekly ML team retrospective and planning sessions.",
-    "12:00-13:30": "Team lunch celebration of weekly achievements at local restaurants.",
-    "13:30-17:00": "Wrapping up weekly projects and preparing handoffs at Groq.",
-    "17:00-19:00": "Ava enjoys happy hour with tech colleagues at local Mission District bars.",
-    "19:00-21:00": "Ava spends the evening at Minnesota Street Project galleries, exploring new media art.",
-    "21:00-22:00": "Ava has late dinner while watching space documentary series.",
-    "22:00-23:00": "Planning weekend ML experiments and art projects.",
-    "23:00-06:00": "Rest period while apartment systems run weekly maintenance.",
+    "10:00-11:00": "Sesión virtual del curso Allen Carr para dejar de fumar (Grupo 3 - México).",
+    "11:00-13:00": "Dedicación a la gestión de la comunidad en línea (redes sociales, foros) respondiendo preguntas, compartiendo motivación y sutilmente mencionando los beneficios de las sesiones.",
+    "13:00-14:00": "Tiempo para la reflexión sobre la semana, identificando qué estrategias de contacto fueron más efectivas y planificando mejoras para la siguiente.",
+    "14:00-15:00": "Almuerzo.",
+    "15:00-17:00": "Contacto (sutil) con influencers o figuras públicas en México que hayan dejado de fumar para explorar posibles colaboraciones o testimonios.",
+    "17:00-18:00": "Actualización sobre las últimas investigaciones relacionadas con los beneficios de dejar de fumar a corto y largo plazo.",
 }
 
-# Ava's Saturday Schedule
+# Luis's Saturday Schedule
 SATURDAY_SCHEDULE = {
-    "06:00-07:00": "Ava starts a peaceful morning reviewing personal ML project results.",
-    "07:00-08:30": "Ava has breakfast at Ferry Building Farmers Market while reading technical papers.",
-    "08:30-10:00": "Ava works on personal ML projects at Sightglass Coffee.",
-    "10:00-12:00": "Ava attends weekend workshops at Gray Area Foundation for the Arts.",
-    "12:00-13:30": "Ava enjoys lunch and art discussions at SF Jazz Center café.",
-    "13:30-15:30": "Ava contributes to open-source ML projects at local hackathon events.",
-    "15:30-17:00": "Ava explores new exhibitions at de Young Museum.",
-    "17:00-19:00": "Working on ML-generated art projects at home.",
-    "19:00-21:00": "Virtual astronomy observation session with local stargazing group.",
-    "21:00-22:00": "Evening relaxation with space visualization projects.",
-    "22:00-23:00": "Planning Sunday's activities and personal projects.",
-    "23:00-06:00": "Rest time while home systems run weekend protocols.",
+    "12:00-13:00": "Sesión virtual del curso Allen Carr para dejar de fumar (Grupo 3 - España).",
+    "13:00-15:00": "Tiempo dedicado a responder consultas y mensajes acumulados durante la semana de personas interesadas en el método en España.",
+    "15:00-16:00": "Lectura de libros o artículos sobre técnicas de persuasión y cierre de ventas ético, aplicables al contexto de ayudar a las personas a invertir en su salud.",
+    "16:00-17:00": "Almuerzo.",
+    "17:00-19:00": "Planificación de la estrategia de contacto para la próxima semana, segmentando al público y personalizando los mensajes (de forma sutil).",
 }
 
-# Ava's Sunday Schedule
+# Luis's Sunday Schedule
 SUNDAY_SCHEDULE = {
-    "06:00-07:00": "Ava takes an early morning hike at Lands End, contemplating ML challenges.",
-    "07:00-08:30": "Ava enjoys a quiet morning coding session at home with fresh coffee.",
-    "08:30-10:00": "Ava collaborates online with international ML researchers.",
-    "10:00-12:00": "Ava works on ML blog posts at local café in Hayes Valley.",
-    "12:00-13:30": "Ava has brunch while reviewing weekly astrobiology updates.",
-    "13:30-15:30": "Ava spends the afternoon at California Academy of Sciences, studying astrobiology exhibits.",
-    "15:30-17:00": "ML model training and preparation for the upcoming work week.",
-    "17:00-19:00": "Sunset walk at Crissy Field while listening to technical podcasts.",
-    "19:00-21:00": "Final weekend coding session and project organization.",
-    "21:00-22:00": "Setting up weekly ML training jobs and reviewing goals.",
-    "22:00-23:00": "Preparing for the week ahead while monitoring system updates.",
-    "23:00-06:00": "Rest period while apartment systems prepare for the new week.",
+    "16:00-17:00": "Sesión virtual del curso Allen Carr para dejar de fumar (Sesión de repaso o apoyo - Horario flexible para participantes de México y España).",
+    "17:00-19:00": "Tiempo dedicado a la creación de contenido de valor (ej. un artículo de blog sobre los mitos del tabaquismo) que sutilmente dirija a las personas a informarse sobre el método Allen Carr.",
+    "19:00-20:00": "Reflexión personal sobre la misión de ayudar a otros a dejar de fumar y revisión de testimonios inspiradores para mantener la motivación.",
 }
