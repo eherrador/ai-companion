@@ -48,7 +48,10 @@ class MemoryManager:
         analysis = await self._analyze_memory(message.content)
         if analysis.is_important and analysis.formatted_memory:
             # Check if similar memory exists
-            similar = self.vector_store.find_similar_memory(analysis.formatted_memory)
+            similar = self.vector_store.find_similar_memory(
+                analysis.formatted_memory,
+                 collection_name=self.vector_store.COLLECTION_NAME # Busca solo en long_term_memory
+                )
             if similar:
                 # Skip storage if we already have a similar memory
                 self.logger.info(f"Similar memory already exists: '{analysis.formatted_memory}'")
@@ -62,11 +65,28 @@ class MemoryManager:
                     "id": str(uuid.uuid4()),
                     "timestamp": datetime.now().isoformat(),
                 },
+                collection_name=self.vector_store.COLLECTION_NAME # Guarda solo en long_term_memory
             )
 
     def get_relevant_memories(self, context: str) -> List[str]:
-        """Retrieve relevant memories based on the current context."""
-        memories = self.vector_store.search_memories(context, k=settings.MEMORY_TOP_K)
+        """
+        Retrieve relevant memories based on the current context from ALL configured memory sources.
+        """
+        # --- MODIFICADO: Ahora search_memories buscará por defecto en ambas colecciones ---
+        memories = self.vector_store.search_memories(
+            context,
+            k=settings.MEMORY_TOP_K,
+            # No especificamos collections_to_search aquí para que use el default (ambas)
+            # Si quisieras solo la memoria a largo plazo, sería:
+            # collections_to_search=[self.vector_store.COLLECTION_NAME]
+            # Si quisieras solo el dataset de negocios, sería:
+            # collections_to_search=[self.vector_store.BUSINESS_COLLECTION_NAME]
+        )
+        # --- FIN MODIFICADO ---
+
+        # """Retrieve relevant memories based on the current context."""
+        # memories = self.vector_store.search_memories(context, k=settings.MEMORY_TOP_K)
+        
         if memories:
             for memory in memories:
                 self.logger.debug(f"Memory: '{memory.text}' (score: {memory.score:.2f})")
