@@ -58,17 +58,17 @@ class VectorStore:
         if missing_vars:
             raise ValueError(f"Missing required environment variables: {', '.join(missing_vars)}")
 
-    def _collection_exists(self) -> bool:
+    def _collection_exists(self, collection_name: str) -> bool:
         """Check if the memory collection exists."""
         collections = self.client.get_collections().collections
-        return any(col.name == self.COLLECTION_NAME for col in collections)
+        return any(col.name == collection_name for col in collections)
 
-    def _create_collection(self) -> None:
+    def _create_collection(self, collection_name: str) -> None:
         """Create a new collection for storing memories."""
         # sample_embedding = self.model.encode("sample text")
         vector_size = self.model.get_sentence_embedding_dimension() # Vector size is defined by used model
         self.client.create_collection(
-            collection_name=self.COLLECTION_NAME,
+            collection_name=collection_name,
             vectors_config=VectorParams(
                 # size=len(sample_embedding),
                 size=vector_size,
@@ -96,6 +96,7 @@ class VectorStore:
         Args:
             text: The text content of the memory
             metadata: Additional information about the memory (timestamp, type, etc.)
+            collection_name: The name of the collection to store the memory in. Defaults to "long_term_memory".
         """
         if not self._collection_exists(collection_name):
             self._create_collection(collection_name)
@@ -126,7 +127,7 @@ class VectorStore:
         Args:
             query: Text to search for
             k: Number of results to return
-
+            collections_to_search: List of collection names to search. If None, searches all known collections.
         Returns:
             List of Memory objects
         """
