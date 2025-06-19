@@ -179,6 +179,7 @@ Rules:
 3. If no actual facts are present in either category, mark as not important
 4. Remove conversational elements and focus on the core information
 5. Prioritize extracting specific details over general statements.
+6. Ensure formatted_memory is as concise as possible while retaining full meaning.
 
 Examples:
 Input: "Hola, soy Juan de Madrid y he fumado por 15 años."
