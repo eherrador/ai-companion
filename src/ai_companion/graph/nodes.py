@@ -18,6 +18,11 @@ from ai_companion.modules.memory.long_term.memory_manager import get_memory_mana
 from ai_companion.modules.schedules.context_generation import ScheduleContextGenerator
 from ai_companion.settings import settings
 
+from typing import (
+    Any,
+    Dict,
+)
+
 
 async def router_node(state: AICompanionState):
     chain = get_router_chain()
@@ -122,23 +127,35 @@ async def summarize_conversation_node(state: AICompanionState):
     return {"summary": response.content, "messages": delete_messages}
 
 
-async def memory_extraction_node(state: AICompanionState):
+async def memory_extraction_node(state: AICompanionState, config: Dict[str, Any]):
     """Extract and store important information from the last message."""
     if not state["messages"]:
         return {}
 
+    session_id = config.get("configurable", {}).get("thread_id")
+    if not session_id:
+        # logger.warning("Session ID (thread_id) no encontrado en la configuración del nodo de extracción de memoria.")
+        return {}
     memory_manager = get_memory_manager()
-    await memory_manager.extract_and_store_memories(state["messages"][-1])
+    await memory_manager.extract_and_store_memories(state["messages"][-1], session_id)
     return {}
 
 
-def memory_injection_node(state: AICompanionState):
+def memory_injection_node(state: AICompanionState, config: Dict[str, Any]):
     """Retrieve and inject relevant memories into the Allen Carr seller card."""
+
+    session_id = config.get("configurable", {}).get("thread_id")
+    if not session_id:
+        # logger.warning("Session ID (thread_id) no encontrado en la configuración del nodo de inyección de memoria.")
+        # Decidir cómo manejar esto: devolver el estado sin memorias o lanzar un error.
+        # Por ahora, devolveremos el estado sin inyección de memoria específica del cliente.
+        return {}
+    
     memory_manager = get_memory_manager()
 
     # Get relevant memories based on recent conversation
     recent_context = " ".join([m.content for m in state["messages"][-3:]])
-    memories = memory_manager.get_relevant_memories(recent_context)
+    memories = memory_manager.get_relevant_memories(recent_context, session_id)
 
     # Format memories for the character card
     memory_context = memory_manager.format_memories_for_prompt(memories)

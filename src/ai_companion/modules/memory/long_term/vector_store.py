@@ -6,9 +6,8 @@ from typing import List, Optional
 
 from ai_companion.settings import settings
 from qdrant_client import QdrantClient
-from qdrant_client.models import Distance, PointStruct, VectorParams
-
-
+from qdrant_client.models import Distance, PointStruct, VectorParams, Filter, FieldCondition, MatchValue
+  
 @dataclass
 class Memory:
     """Represents a memory entry in the vector store."""
@@ -76,16 +75,18 @@ class VectorStore:
             ),
         )
 
-    def find_similar_memory(self, text: str, collection_name: str = "long_term_memory") -> Optional[Memory]:
+    def find_similar_memory(self, text: str, collection_name: str = "long_term_memory", client_id: Optional[str] = None) -> Optional[Memory]:
         """Find if a similar memory already exists.
 
         Args:
             text: The text to search for
+            collection_name: The name of the collection to search in. Defaults to "long_term_memory".
+            client_id: The unique ID of the client to filter memories by. (Crucial for long_term_memory)
 
         Returns:
             Optional Memory if a similar one is found
         """
-        results = self.search_memories(text, k=1, collections_to_search=[collection_name])
+        results = self.search_memories(text, k=1, collections_to_search=[collection_name], client_id=client_id)
         if results and results[0].score >= self.SIMILARITY_THRESHOLD:
             return results[0]
         return None
@@ -102,7 +103,7 @@ class VectorStore:
             self._create_collection(collection_name)
 
         # Check if similar memory exists
-        similar_memory = self.find_similar_memory(text, collection_name=collection_name)
+        similar_memory = self.find_similar_memory(text, collection_name=collection_name, client_id=metadata.get("client_id"))
         if similar_memory and similar_memory.id:
             metadata["id"] = similar_memory.id  # Keep same ID for update
 
@@ -121,7 +122,7 @@ class VectorStore:
             points=[point],
         )
 
-    def search_memories(self, query: str, k: int = 5, collections_to_search: Optional[List[str]] = None) -> List[Memory]:
+    def search_memories(self, query: str, k: int = 5, collections_to_search: Optional[List[str]] = None, client_id: Optional[str] = None) -> List[Memory]:
         """Search for similar memories in the vector store.
 
         Args:
@@ -143,11 +144,27 @@ class VectorStore:
                 # Opcional: print("Collection {collection_name} does not exist. Skipping search.")
                 continue
 
+            # --- Lógica de Filtrado por client_id ---
+            qdrant_filter = None
+            # SOLO aplicar filtro de client_id a la colección long_term_memory
+            # La colección BUSINESS_COLLECTION_NAME (allen_carr) es conocimiento global y no necesita filtro por cliente.
+            if client_id and collection_name == self.COLLECTION_NAME: # self.COLLECTION_NAME es "long_term_memory"
+                qdrant_filter = Filter(
+                    must=[
+                        FieldCondition(
+                            key="client_id", # La clave en el payload donde guardas el ID del cliente
+                            match=MatchValue(value=client_id),
+                        )
+                    ]
+                )
+            # --- Fin Lógica de Filtrado ---
+
             results = self.client.search(
                 collection_name=collection_name,
                 query_vector=query_embedding.tolist(),
                 limit=k, # Limita los resultados por cada colección
                 with_payload=True,
+                query_filter=qdrant_filter,
             )
 
             for hit in results:

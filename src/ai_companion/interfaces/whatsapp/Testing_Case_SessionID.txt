@@ -1,0 +1,140 @@
+**************************************************************************
+*** Caso de Prueba 1: Aislamiento de Memoria a Largo Plazo (LT Memory) ***
+**************************************************************************
+
+===> Cliente A Edgar (teléfono: 525516576613)
+
+curl -X POST http://localhost:8080/whatsapp_response \
+-H "Content-Type: application/json" \
+-d '{
+    "entry": [
+        {
+            "changes": [
+                {
+                    "value": {
+                        "messages": [
+                            {
+                                "from": "525516576613",
+                                "type": "text",
+                                "text": { "body": "Mi nombre es Edgar y fumo 20 cigarrillos al día." }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}'
+
+curl -X POST http://localhost:8080/whatsapp_response \
+-H "Content-Type: application/json" \
+-d '{
+    "entry": [
+        {
+            "changes": [
+                {
+                    "value": {
+                        "messages": [
+                            {
+                                "from": "525516576613",
+                                "type": "text",
+                                "text": { "body": "Estoy muy nervioso por dejar de fumar, me da miedo el síndrome de abstinencia." }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}'
+
+curl -X POST http://localhost:8080/whatsapp_response \
+-H "Content-Type: application/json" \
+-d '{
+    "entry": [
+        {
+            "changes": [
+                {
+                    "value": {
+                        "messages": [
+                            {
+                                "from": "525516576613",
+                                "type": "text",
+                                "text": { "body": "Mi problema principal es el estrés en el trabajo. ¿Cómo me ayuda Allen Carr?." }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}'
+
+===> Cliente Luis (teléfono: 525525190979)
+
+curl -X POST http://localhost:8080/whatsapp_response \
+-H "Content-Type: application/json" \
+-d '{
+    "entry": [
+        {
+            "changes": [
+                {
+                    "value": {
+                        "messages": [
+                            {
+                                "from": "525525190979",
+                                "type": "text",
+                                "text": { "body": "Hola, soy Luis. Quiero saber más de la abstinencia" }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}'
+
+curl -X POST http://localhost:8080/whatsapp_response \
+-H "Content-Type: application/json" \
+-d '{
+    "entry": [
+        {
+            "changes": [
+                {
+                    "value": {
+                        "messages": [
+                            {
+                                "from": "525525190979",
+                                "type": "text",
+                                "text": { "body": "Estoy nervioso por dejar de fumar, ¿qué me puedes decir?" }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}'
+
+curl -X POST http://localhost:8080/whatsapp_response \
+-H "Content-Type: application/json" \
+-d '{
+    "entry": [
+        {
+            "changes": [
+                {
+                    "value": {
+                        "messages": [
+                            {
+                                "from": "525525190979",
+                                "type": "text",
+                                "text": { "body": "Háblame de mi problema principal" }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}'
+

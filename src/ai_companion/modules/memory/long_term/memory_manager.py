@@ -39,7 +39,7 @@ class MemoryManager:
         prompt = MEMORY_ANALYSIS_PROMPT.format(message=message)
         return await self.llm.ainvoke(prompt)
 
-    async def extract_and_store_memories(self, message: BaseMessage) -> None:
+    async def extract_and_store_memories(self, message: BaseMessage, session_id: str) -> None:
         """Extract important information from a message and store in vector store."""
         if message.type != "human":
             return
@@ -50,11 +50,12 @@ class MemoryManager:
             # Check if similar memory exists
             similar = self.vector_store.find_similar_memory(
                 analysis.formatted_memory,
-                 collection_name=self.vector_store.COLLECTION_NAME # Busca solo en long_term_memory
+                 collection_name=self.vector_store.COLLECTION_NAME, # Busca solo en long_term_memory
+                 client_id=session_id
                 )
             if similar:
                 # Skip storage if we already have a similar memory
-                self.logger.info(f"Similar memory already exists: '{analysis.formatted_memory}'")
+                self.logger.info(f"Similar memory already exists for session {session_id}: '{analysis.formatted_memory}'")
                 return
 
             # Store new memory
@@ -64,11 +65,12 @@ class MemoryManager:
                 metadata={
                     "id": str(uuid.uuid4()),
                     "timestamp": datetime.now().isoformat(),
+                    "client_id": session_id,
                 },
                 collection_name=self.vector_store.COLLECTION_NAME # Guarda solo en long_term_memory
             )
 
-    def get_relevant_memories(self, context: str) -> List[str]:
+    def get_relevant_memories(self, context: str, session_id: str) -> List[str]:
         """
         Retrieve relevant memories based on the current context from ALL configured memory sources.
         """
@@ -76,6 +78,7 @@ class MemoryManager:
         memories = self.vector_store.search_memories(
             context,
             k=settings.MEMORY_TOP_K,
+            client_id=session_id
             # No especificamos collections_to_search aquí para que use el default (ambas)
             # Si quisieras solo la memoria a largo plazo, sería:
             # collections_to_search=[self.vector_store.COLLECTION_NAME]
@@ -89,7 +92,8 @@ class MemoryManager:
         
         if memories:
             for memory in memories:
-                self.logger.debug(f"Memory: '{memory.text}' (score: {memory.score:.2f})")
+                source = memory.metadata.get("source_collection", "unknown")
+                self.logger.debug(f"Memory: '{memory.text}' (score: {memory.score:.2f} session: {session_id}, source: {source})")
         return [memory.text for memory in memories]
 
     def format_memories_for_prompt(self, memories: List[str]) -> str:
