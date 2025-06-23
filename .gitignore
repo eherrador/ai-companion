@@ -10,6 +10,11 @@
 # Icon must end with two \r
 Icon
 
+# PDF Documents
+*.pdf
+
+# Inference models
+*.gguf
 
 # Thumbnails
 ._*
