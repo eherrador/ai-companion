@@ -70,6 +70,94 @@ curl -X POST http://localhost:8080/whatsapp_response \
     ]
 }'
 
+curl -X POST http://localhost:8080/whatsapp_response \
+-H "Content-Type: application/json" \
+-d '{
+    "entry": [
+        {
+            "changes": [
+                {
+                    "value": {
+                        "messages": [
+                            {
+                                "from": "525516576613",
+                                "type": "text",
+                                "text": { "body": "Si me gustaría saber." }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}'
+
+curl -X POST http://localhost:8080/whatsapp_response \
+-H "Content-Type: application/json" \
+-d '{
+    "entry": [
+        {
+            "changes": [
+                {
+                    "value": {
+                        "messages": [
+                            {
+                                "from": "525516576613",
+                                "type": "text",
+                                "text": { "body": "Si claro, platicame del seminario en linea." }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}'
+
+curl -X POST http://localhost:8080/whatsapp_response \
+-H "Content-Type: application/json" \
+-d '{
+    "entry": [
+        {
+            "changes": [
+                {
+                    "value": {
+                        "messages": [
+                            {
+                                "from": "525516576613",
+                                "type": "text",
+                                "text": { "body": "Y com puedo inscribirme al seminario." }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}'
+
+curl -X POST http://localhost:8080/whatsapp_response \
+-H "Content-Type: application/json" \
+-d '{
+    "entry": [
+        {
+            "changes": [
+                {
+                    "value": {
+                        "messages": [
+                            {
+                                "from": "525516576613",
+                                "type": "text",
+                                "text": { "body": "Me podrías explicar lo del conflicto de Medio Oriente, entre Israel, Palestina, Iran y Estados Unidos." }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}'
+
 ===> Cliente Luis (teléfono: 525525190979)
 
 curl -X POST http://localhost:8080/whatsapp_response \
@@ -138,3 +226,68 @@ curl -X POST http://localhost:8080/whatsapp_response \
     ]
 }'
 
+curl -X POST http://localhost:8080/whatsapp_response \
+-H "Content-Type: application/json" \
+-d '{
+    "entry": [
+        {
+            "changes": [
+                {
+                    "value": {
+                        "messages": [
+                            {
+                                "from": "525525190979",
+                                "type": "text",
+                                "text": { "body": "Me gustaría saber sobre el seminario en linea." }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}'
+
+curl -X POST http://localhost:8080/whatsapp_response \
+-H "Content-Type: application/json" \
+-d '{
+    "entry": [
+        {
+            "changes": [
+                {
+                    "value": {
+                        "messages": [
+                            {
+                                "from": "525525190979",
+                                "type": "text",
+                                "text": { "body": "Y com puedo inscribirme al seminario?." }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}'
+
+curl -X POST http://localhost:8080/whatsapp_response \
+-H "Content-Type: application/json" \
+-d '{
+    "entry": [
+        {
+            "changes": [
+                {
+                    "value": {
+                        "messages": [
+                            {
+                                "from": "525516576613",
+                                "type": "text",
+                                "text": { "body": "Me podrías explicar lo del conflicto de Medio Oriente, entre Israel, Palestina, Iran y Estados Unidos." }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}'
