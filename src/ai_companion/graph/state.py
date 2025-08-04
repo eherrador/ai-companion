@@ -1,3 +1,4 @@
+from typing import Optional
 from langgraph.graph import MessagesState
 
 
@@ -22,3 +23,4 @@ class AICompanionState(MessagesState):
     current_activity: str
     apply_activity: bool
     memory_context: str
+    user_name: Optional[str]

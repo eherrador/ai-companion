@@ -116,7 +116,8 @@ async def receive_message(request: Request) -> Response:
             
             from_number = normalize_phone_number(from_number)
             logger.info(f"Número recibido: {from_number}")
-            session_id = from_number
+            session_id = from_number[1:]
+            logger.info(f"whatsapp_response.py receive_message (function) -> session_id: {session_id}")
 
             # Corregimos el número para agregar el "+" si falta
             if not from_number.startswith("+"):
